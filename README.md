@@ -55,6 +55,7 @@ Example Output:
 ```makefile
 🌤️  Weather in London
 Temperature: 14.2°C
+Feels Like: 15°C
 Humidity: 67%
 Conditions: broken clouds
 ```
@@ -64,6 +65,7 @@ Conditions: broken clouds
 | Flag    | Description                    |
 | ------- | ------------------------------ |
 | `-city` | (Required) City name to lookup |
+| `-save` | (Optional) Save default city   |
 
 ### ⚙️ .env Setup
 

@@ -23,11 +23,25 @@ func main() {
 	}
 
 	city := flag.String("city", "", "City name to fetch weather for")
+	save := flag.Bool("save", false, "Save the city as default")
 	flag.Parse()
 
 	if *city == "" {
-		fmt.Println("Please provide a city using -city flag")
-		return
+		defaultCity, err := weather.LoadDefaultCity()
+		if err != nil || defaultCity == "" {
+			fmt.Println("❌ No default city set. Please provide a city using -city flag")
+			return
+		}
+		*city = defaultCity
+	}
+
+	if *save {
+		err := weather.SaveDefaultCity(*city)
+		if err != nil {
+			fmt.Println("⚠️ Failed to save default city:", err)
+		} else {
+			fmt.Println("✅ Default city saved successfully!")
+		}
 	}
 
 	w, err := weather.GetWeather(*city, apiKey)
