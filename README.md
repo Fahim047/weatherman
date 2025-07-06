@@ -66,6 +66,7 @@ Conditions: broken clouds
 | ------- | ------------------------------ |
 | `-city` | (Required) City name to lookup |
 | `-save` | (Optional) Save default city   |
+| `-comp` | (Optional) Compare two city    |
 
 ### ⚙️ .env Setup
 
